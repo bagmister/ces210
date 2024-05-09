@@ -16,7 +16,6 @@ class Program
         Random random= new Random();
         Journal journal= new Journal();
         PromptGenerator promptGenerator= new PromptGenerator();
-        var entries = new List<string>();
         do{
             Console.WriteLine($"File path where we are writing to: {filePath}");
             Console.WriteLine("");
@@ -35,7 +34,7 @@ class Program
                 
             else if (choice == 2)
             {
-                journal.DisplayAll(filePath, entries);
+                journal.DisplayAll(filePath);
             }
             else if (choice == 3)
             {
@@ -43,7 +42,7 @@ class Program
             }
             else if (choice == 4)
             {
-                journal.SaveToFile(filePath,entries);
+                journal.SaveToFile(filePath);
             }
             else if(choice == 5)
             {
