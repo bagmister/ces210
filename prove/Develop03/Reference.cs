@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 
 class Reference
 {
@@ -7,7 +8,6 @@ class Reference
     private int _verse;
     private int _endverse;
     private string _text;
-    private string _completeReferenceAsString;
 
     public Reference(string book, int chapter, int verse){
         _book = book;

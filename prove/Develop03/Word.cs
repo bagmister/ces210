@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 class Word
 {
@@ -18,6 +19,16 @@ class Word
         return false;
     }
     public string GetDisplayText(){
-        return "";
+        char[] chars = _text.ToCharArray();
+        var hidden = "";
+        if(_isHidden == false){
+            return _text;
+        }
+        else{
+            foreach (char w in chars) {
+                hidden = hidden + "_";
+            }
+                return hidden;
+        }
     }
 }
