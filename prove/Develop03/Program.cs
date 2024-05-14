@@ -13,7 +13,6 @@ class Program
         Console.WriteLine("Press enter to continue or type 'quit' to finish.");
         var choice = Console.ReadLine();
         Reference reference = new Reference("",0,0);
-        // Console.Clear();
         if (scriptureChoice == 1){
             Console.WriteLine("You have chosen Proverbs 3:5-6");
             reference = new Reference("Proverbs", 3, 5, 6);
