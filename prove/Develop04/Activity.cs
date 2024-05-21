@@ -22,7 +22,7 @@ public class Activity
         DisplaySpinner(5);
     }
     public void DisplayEndingMessage(){
-        Console.WriteLine($"Good Job! Now that the {_name} activity is done. Rest and meditate on what was learned or reflected upon.");
+        Console.WriteLine($"Good Job! Now that the {_name} activity is done. Rest and meditate on what was learned or reflected upon. You did this activity for {_duration} seconds.");
         DisplaySpinner(5);
         Console.Clear();
     }
