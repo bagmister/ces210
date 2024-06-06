@@ -12,41 +12,51 @@ class GoalManager
         GoalManager goalManager= new GoalManager();
         var choice = 0;
         Console.WriteLine("What is your name?");
-        var name = goalManager.SetPlayer(Console.ReadLine());
+        SetPlayer(Console.ReadLine());
         do{
+            DisplayPlayerInfo();
             Console.WriteLine("What Kind of Goal would you like to do?");
             Console.WriteLine("Menu Options: Enter a number 1-5");
             Console.WriteLine("1. Create a goal.");
-            Console.WriteLine("2. Load goals");
-            Console.WriteLine("3. save goals");
-            Console.WriteLine("4. record an event");
-            Console.WriteLine("5. quit");
+            Console.WriteLine("2. Display goals.");
+            Console.WriteLine("3. Load goals");
+            Console.WriteLine("4. save goals");
+            Console.WriteLine("5. record an event");
+            Console.WriteLine("6. quit");
             choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
                 Console.WriteLine("Creating a goal.");
-                goalManager.CreateGoal()
+                goalManager.CreateGoal();
 
             }
             else if (choice == 2)
+            {
+                Console.WriteLine("Display goals");
+                var goals = goalManager.GetGoals();
+                foreach (Goal goal in goals){
+                    Console.WriteLine("");
+                    Console.WriteLine(goal.GetStringRepresentation(goal));
+                } 
+            }
+            else if (choice == 3)
             {
                 Console.WriteLine("What is the file you want to load?");
                 Console.ReadLine();   
 
             }
-            else if (choice == 3)
+            else if (choice == 4)
             {
-                
+               Console.WriteLine("4 has been entered. saving goals.."); 
 
-            }
-            else if(choice == 4)
-            {
-                Console.WriteLine("4 has been entered. Shutting down.");
-                Environment.Exit(choice);
             }
             else if(choice == 5)
             {
-                Console.WriteLine("5 has been entered. Shutting down.");
+                Console.WriteLine("5 has been entered. Record event.");
+            }
+            else if(choice == 6)
+            {
+                Console.WriteLine("6 has been entered. Shutting down.");
                 Environment.Exit(choice);
             }
             else
@@ -54,7 +64,7 @@ class GoalManager
                 Console.WriteLine("Invalid choice. Enter a number again....");
             }
         }
-        while(choice != 5);  
+        while(choice != 6);  
     
 
     }
@@ -125,5 +135,11 @@ class GoalManager
     }
     public string SetPlayer(string player){
         return _player = player;
+    }
+    public List<Goal> GetGoals(){
+        return _goals;
+    }
+    public List<Goal> SetGoals(List<Goal> goals){
+        return _goals = goals;
     }
 }

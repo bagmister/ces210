@@ -10,6 +10,7 @@ class CheckListGoal : Goal
         _shortName = "";
         _description = "";
         _points = 0;
+        _checkBox = "[ ]";
     }
     public override int RecordEvent(){
         return _amountCompleted;
@@ -17,10 +18,10 @@ class CheckListGoal : Goal
     public override bool IsComplete(){
         return _amountCompleted == 0;
     }
-    public string GetDetailsString(){
+    public override string GetDetailsString(){
         return "";
     }
-    public override string GetStringRepresentation(){
+    public override string GetStringRepresentation(Goal goal){
         return _amountCompleted.ToString();
     }
     public CheckListGoal CreateCheckListGoal(string name, string description, int checkListNumber,int bonusPoints){
