@@ -105,15 +105,23 @@ class GoalManager
                 Console.WriteLine("What is a description of this goal?");
                 var checkListDescription = Console.ReadLine();
                 Console.WriteLine("How many times do you want to repeat this goal to accomplish this goal?");
-                var checkListNumber = int.Parse(Console.ReadLine());
+                var checkTarget = int.Parse(Console.ReadLine());
+                Console.WriteLine("How many points should you get for each instance of the goal?");
+                var checkPoints = int.Parse(Console.ReadLine());
                 Console.WriteLine("How many bonus points should you get once you have completed the goal?");
-                var checkListBonusPoints = int.Parse(Console.ReadLine());
-                var checkGoal = checkListGoal.CreateCheckListGoal(checkListname, checkListDescription, checkListNumber, checkListBonusPoints);
+                var checkBonusPoints = int.Parse(Console.ReadLine());
+                var checkGoal = checkListGoal.CreateCheckListGoal(checkListname, checkListDescription, checkPoints, false, checkTarget, checkBonusPoints);
                 _goals.Add(checkGoal);
                 break;
             case 3:
-                EternalGoal eternalGoaleternalGoal = new EternalGoal();
-                Console.WriteLine("What is the name of the goal?");
+                EternalGoal eternalGoal = new EternalGoal();
+                var eternalGoalName = Console.ReadLine();
+                Console.WriteLine("What is a description of this goal?");
+                var eternalGoalDescription = Console.ReadLine();
+                Console.WriteLine("How many points should each event of this goal be worth?");
+                var eternalGoalNumber = int.Parse(Console.ReadLine());
+                var eternGoal = eternalGoal.CreateEternalGoal(eternalGoalName, eternalGoalDescription,eternalGoalNumber, false);
+                _goals.Add(eternGoal);
                 break;
             default:
                 Console.WriteLine("You did not enter a number 1 - 3");
